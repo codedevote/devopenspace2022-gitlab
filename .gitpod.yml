@@ -1,0 +1,16 @@
+image: gitpod/workspace-dotnet
+tasks:
+    - name: Create ssh key
+      command: |
+        if [ ! -f /workspace/ssh/id_rsa.pub ]; then
+          mkdir -p /workspace/ssh
+          mkdir -p ~/.ssh
+          cd /workspace/ssh
+          ssh-keygen -t rsa -q -N "" -f id_rsa
+        fi
+        cp /workspace/ssh/* ~/.ssh
+      
+vscode:
+  extensions:
+    - muhammad-sammy.csharp
+    
